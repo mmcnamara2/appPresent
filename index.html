@@ -1,1 +1,161 @@
-default
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Diamond Pricing App</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Diamond Pricing App">
+  <meta name="author" content="">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/zenburn.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Diamond Pricing App</h1>
+    <h2>Never Get Ripped Off Again</h2>
+    <p><br/></p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>Why Use This App?</h2>
+  </hgroup>
+  <article data-timings="">
+    <ol>
+<li> The average retail diamond seller markups the price by 100%</li>
+<li> Markups as high as 1000% are not unheard of</li>
+<li> With 4 available characteristics of a diamond this app can give you a fair asking price</li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>How it Works</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Data from 308 diamond sales have been analyzed</p>
+
+<p>A multivariate linear regression model on the data yields an R Squared of .95 suggesting 95% of price variability can be explained by the model</p>
+
+<pre><code class="r">modelFit &lt;- train(price ~ .,data=Diamond,method=&quot;glm&quot;)
+modelFit$results
+</code></pre>
+
+<pre><code>##   parameter RMSE Rsquared RMSESD RsquaredSD
+## 1      none  757   0.9532  120.4    0.01057
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>Your Prediction</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Your prediction is based on the previous model.  The following is the exact formula.  Not surprisingly as the size of your diamond increases the price goes up.  This is by far the largest factor.  As more color is added to the diamond the price decreases.  As the purity of the diamond decreases so does the price.</p>
+
+<pre><code>##                  Estimate Std. Error  t value   Pr(&gt;|t|)
+## (Intercept)        169.18      255.0   0.6634  5.076e-01
+## carat            12766.40      190.0  67.1829 7.622e-181
+## colourE          -1439.09      208.0  -6.9193  2.828e-11
+## colourF          -1841.69      195.2  -9.4334  1.234e-18
+## colourG          -2176.67      200.4 -10.8620  2.420e-23
+## colourH          -2747.15      202.9 -13.5385  8.256e-33
+## colourI          -3313.10      212.7 -15.5753  2.482e-40
+## clarityVS1       -1474.57      159.7  -9.2348  5.243e-18
+## clarityVS2       -1792.01      171.2 -10.4682  5.145e-22
+## clarityVVS1       -689.29      159.9  -4.3101  2.227e-05
+## clarityVVS2      -1191.16      148.8  -8.0074  2.726e-14
+## certificationHRD    15.23      107.2   0.1420  8.872e-01
+## certificationIGI   141.26      128.3   1.1014  2.716e-01
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>Final Caveat</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The model is dependent on Carat size, Color, and Clarity.  Three of the 4 Cs in diamond grading.  These characteristics, particularly color and clarity are determined by a third party certification process.  It is important that a reputable organization has made the certification or else the color and clarity could be overstated.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Why Use This App?'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='How it Works'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Your Prediction'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Final Caveat'>
+         4
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>

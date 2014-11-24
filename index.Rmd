@@ -1,0 +1,48 @@
+---
+title       : Diamond Pricing App
+subtitle    : Never Get Ripped Off Again
+author      : 
+job         : 
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : zenburn      # 
+widgets     : []            # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+---
+
+## Why Use This App?
+
+1.  The average retail diamond seller markups the price by 100%
+2.  Markups as high as 1000% are not unheard of
+3.  With 4 available characteristics of a diamond this app can give you a fair asking price
+
+--- .class #id 
+
+## How it Works
+
+Data from 308 diamond sales have been analyzed
+
+A multivariate linear regression model on the data yields an R Squared of .95 suggesting 95% of price variability can be explained by the model
+
+```{r}
+
+modelFit <- train(price ~ .,data=Diamond,method="glm")
+modelFit$results
+
+```
+
+---
+
+## Your Prediction
+
+Your prediction is based on the previous model.  The following is the exact formula.  Not surprisingly as the size of your diamond increases the price goes up.  This is by far the largest factor.  As more color is added to the diamond the price decreases.  As the purity of the diamond decreases so does the price.
+```{r echo=FALSE}
+coef(summary(modelFit))
+```
+
+---
+
+## Final Caveat 
+
+The model is dependent on Carat size, Color, and Clarity.  Three of the 4 Cs in diamond grading.  These characteristics, particularly color and clarity are determined by a third party certification process.  It is important that a reputable organization has made the certification or else the color and clarity could be overstated.
